@@ -1,0 +1,24 @@
+.headerContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.header{
+  width: 100%;
+  max-width: 1200px;
+  height: 5rem;
+  border-bottom: 0.5px solid rgb(156, 156, 156);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  padding: 0 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+.cart{
+  padding: 0 1rem;
+}
