@@ -5,14 +5,12 @@ import { Link } from 'react-router-dom';
 
 export default function Header () {
   return (
-    <div className={styles.headerContainer}>
-      <div className={styles.header}>
-        <Link to={'/'} className={styles.logo}>
-          <div>Logo</div>
-        </Link>
-        <div className={styles.cart}>
-          <CartIcon />
-        </div>
+    <div className={styles.header}>
+      <Link to={'/'} className={styles.logo}>
+        <div>Logo</div>
+      </Link>
+      <div className={styles.cart}>
+        <CartIcon />
       </div>
     </div>
   )

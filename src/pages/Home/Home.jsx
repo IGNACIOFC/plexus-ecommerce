@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query';
-import Header from '../../components/Header'
-import { fetchProducts } from '../../services/products'
-
+import Header from '../../components/Header';
+import { fetchProducts } from '../../services/products';
+import styles from './Home.module.css';
+import ProductCard from '../../components/ProductCard';
 
 export default function Home () {
   const {data: products, error, isLoading} = useQuery(["products"], fetchProducts, 
@@ -13,18 +13,21 @@ export default function Home () {
   
 
   return (
-    <div>
+    <div className={styles.homeContainer}>
       <Header />
-      <h2>Nuestros Productos</h2>
-      {
-        isLoading && <p>Loading...</p>
-      }
-      {
-        products && 
-        <>
-          {products.map((product) => <p>{product.model}</p>)}
-        </>
-      }
+      <div className={styles.home}>
+        <h2 className={styles.homeTitle}>Nuestros Productos</h2>
+        {
+          isLoading && <p>Loading...</p>
+        }
+        {
+          products && 
+          <div className={styles.productList}>
+            {products.map(product => <ProductCard product={product} />)}
+          </div>
+        }
+      </div>
+      
     </div>
   )
 }
