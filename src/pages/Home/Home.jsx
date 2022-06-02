@@ -5,10 +5,7 @@ import styles from './Home.module.css';
 import ProductCard from '../../components/ProductCard';
 
 export default function Home () {
-  const {data: products, error, isLoading} = useQuery(["products"], fetchProducts, 
-  {
-    staleTime: 60000 * 24
-  });
+  const {data: products, isLoading} = useQuery(["products"], fetchProducts);
 
   
 
