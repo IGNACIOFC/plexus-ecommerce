@@ -1,0 +1,10 @@
+.itemDetailsContainer{
+  padding: 4rem;
+  display: flex;
+}
+
+.itemDetails {
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+}

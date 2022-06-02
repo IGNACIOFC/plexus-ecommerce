@@ -4,6 +4,7 @@ import styles from './ProductDetails.module.css';
 import { useLocation } from "react-router-dom";
 import { fetchProductDetails } from "../../services/products";
 import { useQuery } from "react-query";
+import ItemDetails from "../../components/ItemDetails";
 
 export default function ProductDetails () {
   const location = useLocation();
@@ -15,9 +16,7 @@ export default function ProductDetails () {
       <Header />
       <div className={styles.productDetails}>
         <AppBreadcrumbs item={'item'}/>
-        <div>
-          <img src={item.imgUrl} alt={item.model}/>
-        </div>
+        {item && <ItemDetails item={item} />}
       </div>
     </div>
   )
