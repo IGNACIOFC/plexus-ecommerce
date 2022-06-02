@@ -1,11 +1,14 @@
 import Header from "../../components/Header";
 import AppBreadcrumbs from "../../components/AppBreadcrumbs";
+import styles from './ProductDetails.module.css';
 
 export default function ProductDetails () {
   return (
-    <div>
+    <div className={styles.productDetailsContainer}>
       <Header />
-      <AppBreadcrumbs item={'item'}/>
+      <div className={styles.productDetails}>
+        <AppBreadcrumbs item={'item'}/>
+      </div>
     </div>
   )
 }

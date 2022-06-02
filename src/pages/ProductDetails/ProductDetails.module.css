@@ -1,0 +1,11 @@
+.productDetailsContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productDetails{
+  width: 100%;
+  max-width: 1200px;
+}
