@@ -16,6 +16,7 @@ export default function ProductDetails () {
       <Header />
       <div className={styles.productDetails}>
         <AppBreadcrumbs item={'item'}/>
+        {isLoading && <p>Loading...</p>}
         {item && <ItemDetails item={item} />}
       </div>
     </div>
