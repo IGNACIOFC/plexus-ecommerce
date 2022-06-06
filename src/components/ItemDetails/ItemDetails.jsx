@@ -21,7 +21,6 @@ export default function ItemDetails ({item}) {
             <li>Peso: {item.weight}</li>
           </ul>
         </div>
-        <div>Configuration</div>
       </div>
     </div>
   )

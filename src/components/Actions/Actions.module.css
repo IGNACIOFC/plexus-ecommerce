@@ -1,0 +1,15 @@
+button {
+  background: none;
+  border: none;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+.selected{
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.select:hover {
+  text-decoration: underline;
+}

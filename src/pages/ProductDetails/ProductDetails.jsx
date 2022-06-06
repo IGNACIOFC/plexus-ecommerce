@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { fetchProductDetails } from "../../services/products";
 import { useQuery } from "react-query";
 import ItemDetails from "../../components/ItemDetails";
+import Actions from "../../components/Actions";
 
 export default function ProductDetails () {
   const location = useLocation();
@@ -17,7 +18,12 @@ export default function ProductDetails () {
       <div className={styles.productDetails}>
         <AppBreadcrumbs item={'item'}/>
         {isLoading && <p>Loading...</p>}
-        {item && <ItemDetails item={item} />}
+        {item && 
+          <div className={styles.productDescription}>
+            <ItemDetails item={item} />
+            <Actions productId={item.id} options={item.options}/>
+          </div>
+        }
       </div>
     </div>
   )
