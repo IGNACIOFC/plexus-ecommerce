@@ -5,17 +5,40 @@
   align-items: center;
 }
 
+.titleContainer{
+  display: flex;
+  padding: 0 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .home{
   width: 100%;
   max-width: 1200px;
+  padding-bottom: 4rem;
 }
 
-.homeTitle{
-  padding: 0 1rem;
-}
 
 .productList{
   padding: 0.1rem 2rem;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+}
+
+.buttonContainer{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.buttonContainer button {
+  padding: 1rem 4rem;
+  border: 2px solid black;
+  font-weight: 600;
+}
+
+.buttonContainer button:hover {
+  color: white;
+  background-color: black;
 }
