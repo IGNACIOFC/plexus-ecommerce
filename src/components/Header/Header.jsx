@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Header () {
   return (
-    <div className={styles.header}>
+    <div className={styles.header} data-testid="header">
       <Link to={'/'} className={styles.logo}>
         <div>Logo</div>
       </Link>
