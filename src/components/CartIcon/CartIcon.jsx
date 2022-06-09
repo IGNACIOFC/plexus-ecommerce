@@ -8,7 +8,7 @@ export default function CartIcon () {
 
   return (
     <div>
-      <Badge color='secondary' badgeContent={items}>
+      <Badge color='secondary' badgeContent={items} data-testid='icon'>
         <ShoppingCartIcon />{' '}
       </Badge>
     </div>

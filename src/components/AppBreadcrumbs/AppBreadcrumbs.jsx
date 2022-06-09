@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
 import styles from './AppBreadcrumbs.module.css'
 
-export default function AppBreadcrumbs ({ item }) {
+export default function AppBreadcrumbs ({ itemName }) {
+  console.log(itemName)
   return (
     <div className={styles.breadcrumbs}>
       <Link to='/' className={styles.home}>
         <span>Productos</span>
       </Link>
-      {item && <><span> / </span> <span>{item}</span></>}
+      {itemName && <><span> / </span> <span>{itemName}</span></>}
     </div>
   )
 }

@@ -15,13 +15,15 @@ export default function ProductDetails () {
     <div className={styles.productDetailsContainer}>
       <Header />
       <div className={styles.productDetails}>
-        <AppBreadcrumbs item='item' />
         {isLoading && <p>Loading...</p>}
         {item &&
-          <div className={styles.productDescription}>
+        <>
+          <AppBreadcrumbs itemName={`${item.brand} ${item.model}`} />
+           <div className={styles.productDescription}>
             <ItemDetails item={item} />
             <Actions productId={item.id} options={item.options} />
-          </div>}
+          </div>
+        </>}
       </div>
     </div>
   )

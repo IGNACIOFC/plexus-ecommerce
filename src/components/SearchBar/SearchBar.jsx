@@ -48,10 +48,10 @@ export default function SearchBar ({ placeholder, data }) {
       </div>
       {filteredData.length !== 0 && (
         <div className={styles.dataResult}>
-          {filteredData.slice(0, 15).map((value, key) => {
+          {filteredData.slice(0, 15).map((value) => {
             return (
               <Link key={value.id} className={styles.dataItem} to={value.id}>
-                <p>{value.model} </p>
+                <p data-testid='model'>{value.model} </p>
               </Link>
             )
           })}

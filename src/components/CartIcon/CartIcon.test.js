@@ -1,9 +1,9 @@
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import CartIcon from './CartIcon'
 
-describe('Cart Icon', () => {
-  it('render cart', () => {
+it('render cart', async () => {
+  await act(async () => {
     const queryClient = new QueryClient({
       defaultOptions: {
         queries: {

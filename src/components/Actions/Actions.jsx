@@ -22,8 +22,6 @@ export default function Actions ({ productId, options }) {
     })
   }
 
-  console.log(optionSelected)
-
   return (
     <div>
       <div>

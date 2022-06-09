@@ -1,10 +1,12 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, act } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './Header'
 
-describe('Header component', () => {
-  it('render header', () => {
+jest.mock('axios')
+
+beforeEach(async () => {
+  await act(async () => {
     const queryClient = new QueryClient({
       defaultOptions: {
         queries: {
@@ -13,14 +15,21 @@ describe('Header component', () => {
       }
     })
     render(
-      <QueryClientProvider client={queryClient}>
-        <Router>
-          <Header />
-        </Router>
-      </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Header />
+      </Router>
+    </QueryClientProvider>
     )
-    const header = screen.getByText(/Logo/i)
-    console.log(header)
-    expect(header).toBeInTheDocument()
   })
+})
+
+it('render header logo', () => {
+  const header = screen.getByText(/Logo/i)
+  expect(header).toBeInTheDocument()
+})
+
+it('render cart icon', () => {
+  const icon = screen.getByTestId('icon')
+  expect(icon).toBeTruthy()
 })
