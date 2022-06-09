@@ -50,7 +50,7 @@ export default function SearchBar ({ placeholder, data }) {
         <div className={styles.dataResult}>
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <Link className={styles.dataItem} to={value.id}>
+              <Link key={value.id} className={styles.dataItem} to={value.id}>
                 <p>{value.model} </p>
               </Link>
             )

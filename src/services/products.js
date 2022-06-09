@@ -14,13 +14,11 @@ export const fetchProductDetails = async (itemId) => {
 
 export const fetchCartItems = async () => {
   const cartItems = localStorage.getItem('cart')
-  console.log('cart Items:', cartItems)
   const initialValue = JSON.parse(cartItems)
 
   return initialValue || 0
 }
 
 export const addToCart = async (body) => {
-  const { data } = await axios.post(`${API}/cart`, body)
-  console.log(data)
+  await axios.post(`${API}/cart`, body)
 }

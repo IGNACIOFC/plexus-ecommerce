@@ -5,7 +5,7 @@ import { fetchCartItems } from '../../services/products'
 
 export default function CartIcon () {
   const { data: items } = useQuery(['cart'], fetchCartItems)
-  console.log(items)
+
   return (
     <div>
       <Badge color='secondary' badgeContent={items}>

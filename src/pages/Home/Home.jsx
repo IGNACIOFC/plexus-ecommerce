@@ -17,7 +17,9 @@ export default function Home () {
   }
 
   function nextPage () {
-    setCurrentPage(currentPage + 5)
+    if (currentPage < products.length - 5) {
+      setCurrentPage(currentPage + 5)
+    }
   }
 
   function prevPage () {
@@ -40,7 +42,7 @@ export default function Home () {
         {
           pageProducts() &&
             <div className={styles.productList}>
-              {pageProducts().map(product => <ProductCard product={product} />)}
+              {pageProducts().map(product => <ProductCard key={product.id} product={product} />)}
             </div>
         }
         <div className={styles.buttonContainer}>
