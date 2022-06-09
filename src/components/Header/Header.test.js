@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from 'react-query';
-import {BrowserRouter as Router} from 'react-router-dom';
-import Header from './Header';
+import { render, screen } from '@testing-library/react'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Header from './Header'
 
 describe('Header component', () => {
   it('render header', () => {
@@ -18,9 +18,9 @@ describe('Header component', () => {
           <Header />
         </Router>
       </QueryClientProvider>
-    );
-    const header = screen.getByText(/Logo/i);
+    )
+    const header = screen.getByText(/Logo/i)
     console.log(header)
-    expect(header).toBeInTheDocument();
+    expect(header).toBeInTheDocument()
   })
 })

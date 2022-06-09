@@ -1,1 +1,1 @@
-export {default} from './AppBreadcrumbs';
+export { default } from './AppBreadcrumbs'

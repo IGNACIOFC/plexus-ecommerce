@@ -1,9 +1,9 @@
 import styles from './ItemDetails.module.css'
 
-export default function ItemDetails ({item}) {
+export default function ItemDetails ({ item }) {
   return (
     <div className={styles.itemDetailsContainer}>
-      <img src={item.imgUrl} alt={item.model}/>
+      <img src={item.imgUrl} alt={item.model} />
       <div className={styles.itemDetails}>
         <div>
           <ul>

@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import {BrowserRouter as Router} from 'react-router-dom';
-import App from './App';
-
+import { render, screen } from '@testing-library/react'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { BrowserRouter as Router } from 'react-router-dom'
+import App from './App'
 
 test('renders learn react link', () => {
   const queryClient = new QueryClient({
@@ -18,7 +17,7 @@ test('renders learn react link', () => {
         <App />
       </Router>
     </QueryClientProvider>
-  );
-  const linkElement = screen.getByText(/Logo/i);
-  expect(linkElement).toBeInTheDocument();
-});
+  )
+  const linkElement = screen.getByText(/Logo/i)
+  expect(linkElement).toBeInTheDocument()
+})

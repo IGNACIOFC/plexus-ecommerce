@@ -1,29 +1,27 @@
-import { useMutation, useQueryClient } from "react-query"
-import { addToCart } from "../../services/products";
+import { useMutation, useQueryClient } from 'react-query'
+import { addToCart } from '../../services/products'
 
-export default function AddToCart ({optionSelected, id}) {
+export default function AddToCart ({ optionSelected, id }) {
+  const queryClient = useQueryClient()
 
-  const queryClient = useQueryClient();
-  
-  const {mutate} = useMutation(addToCart, {
+  const { mutate } = useMutation(addToCart, {
     onSuccess: () => {
-      queryClient.setQueryData(["cart"], (prevItems) => {
+      queryClient.setQueryData(['cart'], (prevItems) => {
         const count = prevItems + 1
-        localStorage.setItem("cart", count);
+        localStorage.setItem('cart', count)
         return count
       })
     }
-  });
+  })
 
   function handleCart () {
     const body = {
-      id: id,
+      id,
       colorCode: optionSelected.color,
       storageCode: optionSelected.storage
     }
-    mutate(body);
+    mutate(body)
   }
 
   return <button onClick={handleCart}>Submit</button>
-
 }
