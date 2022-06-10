@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import styles from './AppBreadcrumbs.module.css'
 
 export default function AppBreadcrumbs ({ itemName }) {
-  console.log(itemName)
   return (
     <div className={styles.breadcrumbs}>
       <Link to='/' className={styles.home}>
