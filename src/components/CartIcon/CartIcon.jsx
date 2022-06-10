@@ -6,8 +6,6 @@ import { fetchCartItems } from '../../services/products'
 export default function CartIcon () {
   const { data: items, isLoading, isSuccess, isError } = useQuery(['cart'], fetchCartItems)
 
-  console.log(items, isSuccess)
-
   if (isError) {
     return <></>
   }
