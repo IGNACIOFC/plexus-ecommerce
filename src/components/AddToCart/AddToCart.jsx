@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from 'react-query'
 import { addToCart } from '../../services/products'
+import styles from './AddToCart.module.css'
 
 export default function AddToCart ({ optionSelected, id }) {
   const queryClient = useQueryClient()
@@ -23,5 +24,5 @@ export default function AddToCart ({ optionSelected, id }) {
     mutate(body)
   }
 
-  return <button onClick={handleCart}>Submit</button>
+  return <button className={styles.submitButton} onClick={handleCart}>Añadir</button>
 }
