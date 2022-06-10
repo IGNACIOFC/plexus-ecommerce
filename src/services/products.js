@@ -7,7 +7,7 @@ export const fetchProducts = async () => {
     const { data } = await axios.get(`${API}/product`)
     return data
   } catch (error) {
-    return error
+    throw new Error(error)
   }
 }
 
@@ -16,18 +16,22 @@ export const fetchProductDetails = async (itemId) => {
     const { data } = await axios.get(`${API}/product${itemId}`)
     return data
   } catch (error) {
-    return error
+    throw new Error(error)
   }
 }
 
 export const fetchCartItems = async () => {
   try {
     const cartItems = localStorage.getItem('cart')
-    const initialValue = JSON.parse(cartItems)
-
-    return initialValue || 0
+    if (cartItems) {
+      const initialValue = JSON.parse(cartItems)
+      return initialValue
+    } else {
+      localStorage.setItem('cart', 0)
+      return 0
+    }
   } catch (error) {
-    return error
+    throw new Error(error)
   }
 }
 
@@ -35,6 +39,6 @@ export const addToCart = async (body) => {
   try {
     await axios.post(`${API}/cart`, body)
   } catch (error) {
-    return error
+    throw new Error(error)
   }
 }

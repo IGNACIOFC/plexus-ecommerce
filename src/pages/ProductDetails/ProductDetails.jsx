@@ -9,7 +9,11 @@ import Actions from '../../components/Actions'
 
 export default function ProductDetails () {
   const { id } = useParams()
-  const { data: item, isLoading } = useQuery(['products', id], () => fetchProductDetails(`/${id}`))
+  const { data: item, isLoading, isError } = useQuery(['products', id], () => fetchProductDetails(`/${id}`))
+
+  if (isError) {
+    return <p>Vaya... Hemos tenido un problema. Inténtelo de nuevo.</p>
+  }
 
   return (
     <div className={styles.productDetailsContainer}>

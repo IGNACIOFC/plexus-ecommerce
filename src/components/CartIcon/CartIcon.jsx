@@ -4,13 +4,25 @@ import { useQuery } from 'react-query'
 import { fetchCartItems } from '../../services/products'
 
 export default function CartIcon () {
-  const { data: items } = useQuery(['cart'], fetchCartItems)
+  const { data: items, isLoading, isSuccess, isError } = useQuery(['cart'], fetchCartItems)
 
-  return (
-    <div>
-      <Badge color='secondary' badgeContent={ items || 0 } data-testid='icon'>
-        <ShoppingCartIcon />{' '}
-      </Badge>
-    </div>
-  )
+  console.log(items, isSuccess)
+
+  if (isError) {
+    return <></>
+  }
+
+  if (isLoading) {
+    return <></>
+  }
+
+  if (isSuccess) {
+    return (
+      <div>
+        <Badge color='secondary' badgeContent={ items || 1 } data-testid='icon'>
+          <ShoppingCartIcon />{' '}
+        </Badge>
+      </div>
+    )
+  }
 }

@@ -7,7 +7,7 @@ import SearchBar from '../../components/SearchBar'
 import { useState } from 'react'
 
 export default function Home () {
-  const { data: products, isLoading } = useQuery(['products'], fetchProducts)
+  const { data: products, isLoading, isError } = useQuery(['products'], fetchProducts)
   const [currentPage, setCurrentPage] = useState(0)
 
   const pageProducts = () => {
@@ -28,29 +28,36 @@ export default function Home () {
     }
   }
 
-  return (
-    <div className={styles.homeContainer}>
-      <Header />
-      <div className={styles.home}>
-        <div className={styles.titleContainer}>
-          <h2 className={styles.homeTitle}>Nuestros Productos</h2>
-          <SearchBar placeholder='Encuentra tu producto...' data={products} />
-        </div>
-        {
-          isLoading && <p>Loading...</p>
-        }
-        {
-          pageProducts() &&
-            <div className={styles.productList}>
-              {pageProducts().map(product => <ProductCard key={product.id} product={product} />)}
-            </div>
-        }
-        <div className={styles.buttonContainer}>
-          <button onClick={prevPage}>Anteriores</button>
-          <button onClick={nextPage}>Siguientes</button>
-        </div>
-      </div>
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
 
-    </div>
-  )
+  if (isError) {
+    return <p>Vaya... Hemos tenido un problema. Inténtelo de nuevo.</p>
+  }
+
+  if (products) {
+    return (
+      <div className={styles.homeContainer}>
+        <Header />
+        <div className={styles.home}>
+          <div className={styles.titleContainer}>
+            <h2 className={styles.homeTitle}>Nuestros Productos</h2>
+            <SearchBar placeholder='Encuentra tu producto...' data={products} />
+          </div>
+          {
+            pageProducts() &&
+              <div className={styles.productList}>
+                {pageProducts().map(product => <ProductCard key={product.id} product={product} />)}
+              </div>
+          }
+          <div className={styles.buttonContainer}>
+            <button onClick={prevPage}>Anteriores</button>
+            <button onClick={nextPage}>Siguientes</button>
+          </div>
+        </div>
+
+      </div>
+    )
+  }
 }
